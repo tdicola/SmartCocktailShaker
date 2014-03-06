@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/step_list_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Instructions go here." />
+
+    <RelativeLayout
+        android:id="@+id/step_list_active_views"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/step_list_instruction">
+
+        <RelativeLayout
+            android:id="@+id/step_list_measure_views"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/step_list_measure_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Measured: "
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/step_list_measure_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/step_list_measure_label"
+                android:textSize="20sp"
+                android:text="Value" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/step_list_measure_value"
+                android:textSize="20sp"
+                android:text=" oz" />
+
+            <ProgressBar
+                android:id="@+id/step_list_measure_progress"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/step_list_measure_label"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/step_list_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/step_list_measure_views"
+            android:layout_alignParentRight="true"
+            android:text="Next" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

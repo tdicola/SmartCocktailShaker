@@ -1,0 +1,87 @@
+{
+   "drinks": [
+      {
+         "name": "Old Fashioned",
+         "description": "The Old Fashioned is a cocktail made by muddling sugar with bitters then adding alcohol, such as whiskey or brandy, and a twist of citrus rind. It is traditionally served in a short, round tumbler-like glass, which is called an Old Fashioned glass, named after the drink. (<a href=\"http://en.wikipedia.org/wiki/Old_Fashioned\">Wikipedia</a>)",
+         "preparation": [
+            {
+               "instructions": "Place an old fashioned glass on the scale."
+            },
+            {
+               "instructions": "Add 0.5 oz of simple syrup to the glass.",
+               "measure_grams": "18.3",
+               "grams_per_oz": "36.6"
+            },
+            {
+               "instructions": "Add 2 dashes of aromatic bitters to the glass."
+            },
+            {
+               "instructions": "Add 2 oz of bourbon to the glass.",
+               "measure_grams": "49.8",
+               "grams_per_oz": "24.9"
+            },
+            {
+               "instructions": "Add enough ice to cover the liquid in the glass.  Stir for 15 seconds."
+            },
+            {
+               "instructions": "Garnish with an orange twist and cherry."
+            }
+         ]
+      },
+      {
+         "name": "Gin Martini",
+         "description": "The Martini is a cocktail made with gin and vermouth, and garnished with an olive or a lemon twist. Over the years, the Martini has become one of the best-known mixed alcoholic beverages. H. L. Mencken called the Martini \"the only American invention as perfect as the sonnet\" and E. B. White called it \"the elixir of quietude\". (<a href=\"http://en.wikipedia.org/wiki/Martini_(cocktail)\">Wikipedia</a>)",
+         "preparation": [
+            {
+               "instructions": "Place a shaker or mixing glass filled with ice on the scale."
+            },
+            {
+               "instructions": "Add 2.5 oz of gin to the shaker.",
+               "measure_grams": "69.5",
+               "grams_per_oz": "27.8"
+            },
+            {
+               "instructions": "Add 0.5 oz of dry vermouth to the shaker.",
+               "measure_grams": "13.55",
+               "grams_per_oz": "27.1"
+            },
+            {
+               "instructions": "Stir contents of shaker for 30 seconds."
+            },
+            {
+               "instructions": "Strain contents of shaker into chilled cocktail glass."
+            },
+            {
+               "instructions": "Garnish with an olive or lemon twist."
+            }
+         ]
+      },
+      {
+         "name": "White Russian",
+         "description": "A White Russian is a sweet cocktail classically made with vodka, coffee liqueur, and cream served with ice in an Old Fashioned glass. (<a href=\"http://en.wikipedia.org/wiki/White_Russian_(cocktail)\">Wikipedia</a>)",
+         "preparation": [
+            {
+               "instructions": "Place an old fashioned glass filled with ice on the scale."
+            },
+            {
+               "instructions": "Add 1.5 oz of vodka to the glass.",
+               "measure_grams": "37.65",
+               "grams_per_oz": "25.1"
+            },
+            {
+               "instructions": "Add 0.75 oz of Kahlua to the glass.",
+               "measure_grams": "25.575",
+               "grams_per_oz": "34.1"
+            },
+            {
+               "instructions": "Add 0.75 oz of cream to the glass.",
+               "measure_grams": "24.225",
+               "grams_per_oz": "32.3"
+            },
+            {
+               "instructions": "Stir contents of glass for 15 seconds."
+            }
+         ]
+      }
+   ]
+}

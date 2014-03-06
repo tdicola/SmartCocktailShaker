@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Smart Shaker</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_drink_details">Smart Shaker</string>
+    <string name="title_activity_prepare_drink">Smart Shaker</string>
+    <string name="title_activity_connection">Smart Shaker</string>
+
+</resources>

@@ -1,0 +1,39 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 11
+        versionCode 1
+        versionName "1.0"
+        testPackageName "com.tonydicola.smartshaker.tests"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    sourceSets {
+        instrumentTest {
+            res.srcDirs = ['res']
+        }
+
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.jakewharton:butterknife:4.0.1'
+    compile 'commons-io:commons-io:2.4'
+    instrumentTestCompile 'org.mockito:mockito-core:1.9.5'
+    instrumentTestCompile 'com.google.dexmaker:dexmaker:1.0'
+    instrumentTestCompile 'com.google.dexmaker:dexmaker-mockito:1.0'
+
+}

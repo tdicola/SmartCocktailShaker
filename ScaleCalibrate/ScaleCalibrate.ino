@@ -14,12 +14,9 @@
 
 #define SAMPLE_PERIOD_MS   250            // How long to wait between measurements.
 
-const float GRAMS_PER_MEASUREMENT = 1.0;  // Grams per measurement used to converts the measurement values into weight.
-                                          // Set this by noting the filtered measurement for a known weight.
-                                          // For example if a 200 gram weight has a filtered measurement value of 89.9 you
-                                          // would set this to 200.0 / 89.9
-
 // Internal state used by the sketch.
+float ZERO_OFFSET;
+float GRAMS_PER_MEASUREMENT; 
 float filterSamples[FILTER_SAMPLES];
 int filterIndex = 0;
 
@@ -27,13 +24,39 @@ void setup(void)
 {
   Serial.begin(9600);
 
-  // Use internal 1.1V analog reference voltage.
-  analogReference(INTERNAL);
+  analogReference(EXTERNAL);
   
-  // Initialize previous samples to 0.
+  // Initialize all samples to 0.
   for (int i = 0; i < FILTER_SAMPLES; ++i) {
-    filterSamples[i] = 0.0;
+    filterSamples[i] = 0;
   }
+ 
+  // Run through calibration process.
+  Serial.println("Scale Calibration Sketch");
+  Serial.println();
+  Serial.println("Type OK and press enter to start.");
+  while (!Serial.find("OK"));
+  Serial.println();
+  Serial.println("Remove all weight from the scale, then type OK and press enter.");
+  while (!Serial.find("OK"));
+  ZERO_OFFSET = readADC(ADC_PIN);
+  Serial.println();
+  Serial.println("Place something on the scale and type its weight in grams, then press enter.");
+  float grams = Serial.parseFloat();
+  while (grams <= 0) {
+    grams = Serial.parseFloat();
+  }
+  float measure = readADC(ADC_PIN) - ZERO_OFFSET;
+  GRAMS_PER_MEASUREMENT = grams / measure;
+  Serial.println();
+  Serial.println("Calibration finished!  Write down the following calibration values:");
+  Serial.print("ZERO_OFFSET = ");
+  Serial.println(ZERO_OFFSET, 5);
+  Serial.print("GRAMS_PER_MEASUREMENT = ");
+  Serial.println(GRAMS_PER_MEASUREMENT, 5);
+  Serial.println();
+  Serial.println("Type OK and press enter to see measured weight values printed periodically.");
+  while (!Serial.find("OK"));
 }
 
 // Query the analog pin for a value.
@@ -65,14 +88,12 @@ void loop(void)
 {
   // Take a reading and filter it to generate a sample.
   float adc = readADC(ADC_PIN);
-  float sample = filterSample(adc);
-  // Print out the raw reading, filtered value, and weight.
-  Serial.print("ADC: ");
-  Serial.print(adc);
-  Serial.print("\tFILTERED: ");
-  Serial.print(sample);
-  Serial.print("\tGRAMS: ");
-  Serial.println(sample * GRAMS_PER_MEASUREMENT);
+  float sample = filterSample(adc) - ZERO_OFFSET;
+  // Clamp sample value to 0.
+  sample = sample < 0.0 ? 0.0 : sample;
+  // Compute the weight and print it out.
+  Serial.print("Weight (grams): ");
+  Serial.println(sample * GRAMS_PER_MEASUREMENT, 1);
   // Wait until it's time for the next sample.
   delay(SAMPLE_PERIOD_MS);
 }

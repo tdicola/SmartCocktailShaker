@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SmartShaker.iml" filepath="$PROJECT_DIR$/SmartShaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartShaker/SmartShaker-SmartShaker.iml" filepath="$PROJECT_DIR$/SmartShaker/SmartShaker-SmartShaker.iml" />
+    </modules>
+  </component>
+</project>
+
